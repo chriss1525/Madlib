@@ -11,18 +11,25 @@ int main(void)
 	char subject[20];
 	char verb[20];
 	char object[20];
+	char article[5];
+
 	char intro[100] = "Write a simple English sentense";
 
 	printf("%s\n", intro);
-	printf("**type any noun or pronoun**\n");
+
+	/*get the subject of the sentence*/
+	printf("**type any noun**\n");
+
 	scanf("%s", subject);
-	/*printf("%s", subject);*/
+
+	/*get the verb or action*/
 	printf("**now type an action**\n");
 	scanf("%s", verb);
-	/*printf("%s", verb);*/
-	printf("**now type who/where the action is targeted\n");
-	scanf("%s", object);
-	/*printf("%s", object);*/
 
-	printf("%s %s %s\n", subject, verb, object);
+	/*get the article and subject of the sentence*/
+	printf("**now type who/where the action is targeted\n");
+	scanf("%s", article);
+	scanf("%s", object);
+
+	printf("%s %s %s %s\n", subject, verb, article, object);
 }
