@@ -1,4 +1,4 @@
-#Madlib Game
+# MADLIB GAME
 
 -Simple fun terminal game 
 
@@ -6,7 +6,7 @@
 
 -Utilizes Printf to print output to STOUT
 
-## Language.c
+## LANGUAGE.C
 
 
 This is a simple program that helps the user write a simple three word English sentense
