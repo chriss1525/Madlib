@@ -18,8 +18,8 @@ char *concatenate(const char *a, const char *b, const char *c)
 
 	if (sentence)
 	{
-		memcpy(sentence, a, lena + ' ');
-		memcpy(sentence + lena, b, lenb + ' ');
+		memcpy(sentence, a, lena);
+		memcpy(sentence + lena, b, lenb);
 		memcpy(sentence + lena + lenb, c, lenc + 3);
 	}
 	return sentence;
