@@ -4,6 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void madlib(void);
+char *concatenate(const char *a, const char *b, const char *c);
 
 #endif /* MAIN_H*/
