@@ -14,16 +14,35 @@ int main(void)
 	char verb[20];
 	char object[20];
 	char *simple_sentence;
+	char i;
 
 	char intro[100] = "****Write a simple English sentense****";
 
 	printf("%s\n", intro);
 	printf("**type any noun**\n");
 	scanf("%s", subject);
-	printf("**type any verb**\n");
-	scanf("%s", verb);
-	printf("**type any noun**\n");
-	scanf("%s", object);
+	printf("**randomise word?y/n**\n");
+	scanf("%c", i);
+	if (i == 'y')
+	{
+		get_verbs();
+	}
+	else
+	{
+		printf("**type any verb**");
+		scanf("%s", verb);
+	}
+	printf("**randomise object?y/n**\n");
+	scanf("%c", i);
+	if (i == 'y')
+	{
+		get_nouns();
+	}
+	else
+	{
+		printf("**type any noun**");
+		scanf("%s", verb);
+	}
 
 	simple_sentence = concatenate(subject, verb, object);
 

@@ -14,13 +14,13 @@ char *concatenate(const char *a, const char *b, const char *c)
 	size_t lena = strlen(a);
 	size_t lenb = strlen(b);
 	size_t lenc = strlen(c);
-	char *sentence = malloc(lena + lenb + lenc + 3);
+	char *sentence = malloc(lena + lenb + lenc + 1);
 
 	if (sentence)
 	{
 		memcpy(sentence, a, lena);
 		memcpy(sentence + lena, b, lenb);
-		memcpy(sentence + lena + lenb, c, lenc + 3);
+		memcpy(sentence + lena + lenb, c, lenc + 1);
 	}
 	return sentence;
 }

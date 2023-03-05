@@ -5,5 +5,7 @@
 #include <stdlib.h>
 
 char *concatenate(const char *a, const char *b, const char *c);
+int get_nouns(void);
+int get_verbs(void);
 
 #endif /* MAIN_H*/
