@@ -25,7 +25,7 @@ int main(void)
 	scanf("%c", i);
 	if (i == 'y')
 	{
-		get_verbs();
+		verb = get_verbs();
 	}
 	else
 	{
@@ -36,7 +36,7 @@ int main(void)
 	scanf("%c", i);
 	if (i == 'y')
 	{
-		get_nouns();
+		subject = get_nouns();
 	}
 	else
 	{
