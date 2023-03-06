@@ -4,13 +4,13 @@
  */
 
 #define MAX_WORD 100
-#define NUM_WORDS 50
+
 
 int get_nouns(void)
 {
-    char randwords[NUM_WORDS][MAX_WORD];
     FILE *nouns;
     char word[MAX_WORD];
+    char randword[MAX_WORD];
     long i = 0;
     long j;
     size_t c;
@@ -28,19 +28,11 @@ int get_nouns(void)
             ++i;
         }
 
-        /*srand((unsigned)time(NULL));*/
-        for (c = 0; c < NUM_WORDS; c++)
-        {
-            rewind(nouns);
-            int sel = rand() % c + 1;
-            for (j = 0; j < sel; j++)
-            {
-                if (fgets(word, sizeof word, nouns) == NULL)
-                {
-                    perror("Error in fgets()");
-                }
-            }
-        }
+        /*get random words from list*/
+       while (word < i)
+       {
+        
+       }
     }
     return (j);
 }

@@ -7,5 +7,6 @@
 char *concatenate(const char *a, const char *b, const char *c);
 int get_nouns(void);
 int get_verbs(void);
+/*int rindex(int upper);*/
 
 #endif /* MAIN_H*/
