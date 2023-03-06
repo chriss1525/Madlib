@@ -1,45 +1,49 @@
-#include "main.h"
-/**
- * get_nouns - gets a  random word from the list nouns
- * Return: random noun
- */
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
 
-char *get_nouns(void)
+#define MAX_LENGTH 100
+
+char *get_nouns()
 {
-    FILE *nouns;
-    char *word;
-    char *nword;
-    int i = 0;
-    char *j;
+    FILE *filePointer;
+    char buffer[MAX_LENGTH];
+    char *strings[MAX_LENGTH];
+    int numStrings = 0;
 
-    nouns = fopen("rnouns.txt", "r");
+    // Open the file in read mode
+    filePointer = fopen("rnouns.txt", "r");
 
-    if (nouns == NULL)
+    // Check if file was opened successfully
+    if (filePointer == NULL)
     {
-        perror("Unable to locate word list");
-        exit(EXIT_FAILURE);
-
-        /*count number of words*/
-        while (fgets(word, sizeof(word), nouns) != NULL)
-        {
-            ++i;
-        }
-
-        /*get random words from list*/
-        i = random_index(i);
-        while (i)
-        {
-            j = word;
-            nword = fgets(j, sizeof(word), nouns);
-        }
+        printf("File could not be opened.\n");
+        exit(1);
     }
-    return (nword);
-}
 
-int main (void)
-{
-    char *j;
+    // Read the strings from the file
+    while (fgets(buffer, MAX_LENGTH, filePointer))
+    {
+        strings[numStrings] = malloc(strlen(buffer) + 1);
+        strcpy(strings[numStrings], buffer);
+        numStrings++;
+    }
 
-    j = get_nouns();
-    printf("%s\n", j);
+    // Seed the random number generator
+    srand(time(NULL));
+
+    // Pick a random string from the array
+    int index = rand() % numStrings;
+
+    // Free memory used by the strings
+    for (int i = 0; i < numStrings; i++)
+    {
+        free(strings[i]);
+    }
+
+    // Close the file
+    fclose(filePointer);
+
+    return (strings[index]);
 }
