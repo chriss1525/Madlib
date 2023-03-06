@@ -10,39 +10,40 @@
 
 int main(void)
 {
-	char subject[20];
-	char verb[20];
-	char object[20];
+	char *subject = malloc(sizeof(MAX_WORD));
+	char *verb = malloc(sizeof(MAX_WORD));
+	char *object = malloc(sizeof(MAX_WORD));
 	char *simple_sentence;
-	char i;
+	char *i;
 
-	char intro[100] = "****Write a simple English sentence****";
+	char *intro = "****Write a simple English sentence****";
 
 	printf("%s\n", intro);
 	printf("**type any noun**\n");
 	scanf("%s", subject);
-	/*printf("**randomise word?y/n**\n");
-	/*scanf("%c", i);
-	/*if (i == 'y')
+	printf("**randomise word? (yes/no)**\n");
+	scanf("%s", i);
+	if (i == "yes")
 	{
 		verb = get_verbs();
 	}
-	else*/
+	/*else
 	{
 		printf("**type any verb**\n");
 		scanf("%s", verb);
-	}
-	/*printf("**randomise object?y/n**\n");
-	/*scanf("%c", i);
-	if (i == 'y')
+	}*/
+	printf("**randomise object?y/n**\n");
+	scanf("%s", i);
+
+	if (i == "yes")
 	{
-		subject = get_nouns();
+		object = get_nouns();
 	}
-	else*/
+	/*else
 	{
 		printf("**type any noun**\n");
 		scanf("%s", object);
-	}
+	}*/
 
 	simple_sentence = concatenate(subject, verb, object);
 

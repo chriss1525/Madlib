@@ -1,10 +1,13 @@
 #include "main.h"
 /**
- * get_nouns - gets a  random word from the list nouns
+ * get_verbs - gets a  random word from the list verbs
  * Return: random noun
  */
 
-char *get_nouns(void)
+#define MAX_WORD 100
+
+
+char *get_verbs(void)
 {
     FILE *nouns;
     char *word;
@@ -34,12 +37,4 @@ char *get_nouns(void)
         }
     }
     return (nword);
-}
-
-int main (void)
-{
-    char *j;
-
-    j = get_nouns();
-    printf("%s\n", j);
 }

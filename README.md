@@ -34,3 +34,7 @@ This file contains a function that picks a random word from the list of nouns in
 ## rverbs.c
 
 This file contains a function that picks a random word from the list of verbs in rverbs.c
+
+## rindex.c
+
+gets a specific index for words in list
