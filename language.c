@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_WORD 20
+
 /**
  * madlib - takes in prompts and prints them on the terminal
  * Return: returns nothing
@@ -14,32 +16,39 @@ int main(void)
 	char *verb = malloc(sizeof(MAX_WORD));
 	char *object = malloc(sizeof(MAX_WORD));
 	char *simple_sentence;
-	int i = 'y';
+	char *tempverb = NULL;
+	char *tempobject = NULL;
+	char *random = malloc(sizeof(MAX_WORD));
+	char *temp_verb = NULL;
+	char *temp_object = NULL;
 
 	char *intro = "****Write a simple English sentence****";
 
 	printf("%s\n", intro);
 	printf("**type any noun**\n");
 	scanf("%s", subject);
-	printf("**randomize word? (y/n)**\n");
-	scanf("%d", &i);
-	if (i)
+	printf("**randomize word? (yes/no)**\n");
+	scanf("%s", random);
+	int rchoice = true_or_false(random);
+
+	if (rchoice == 1)
 	{
-		verb = get_verbs();
-		printf("%s", verb);
+		temp_verb = get_verbs();
+		printf("%s", temp_verb);
 	}
 	else
 	{
 		printf("**type any verb**\n");
 		scanf("%s", verb);
 	}
-	printf("**randomise object?y/n**\n");
-	scanf("%d", &i);
 
-	if (i)
+	printf("**randomise object?yes/no**\n");
+	scanf("%s", random);
+
+	if (rchoice == 1)
 	{
-		object = get_nouns();
-		printf("%s", object);
+		temp_object = get_nouns();
+		printf("%s", temp_object);
 	}
 	else
 	{
@@ -47,7 +56,40 @@ int main(void)
 		scanf("%s", object);
 	}
 
+	if (temp_verb != NULL)
+	{
+		strcpy(verb, temp_verb);
+		free(temp_verb);
+	}
+
+	if (temp_object != NULL)
+	{
+		strcpy(object, temp_object);
+		free(temp_object);
+	}
+
 	simple_sentence = concatenate(subject, verb, object);
 
 	printf("%s\n", simple_sentence);
+}
+
+
+int true_or_false(char *n)
+{
+	int ToF;
+
+	if (strcmp(n, "yes") == 0)
+	{
+		ToF = 1;
+	}
+	else if (strcmp(n, "no") == 0)
+	{
+		ToF = 0;
+	}
+	else
+	{
+		printf("Invalid input.\n");
+	}
+
+	return (ToF);
 }

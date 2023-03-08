@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 
-#define MAX_LENGTH 100
+#define MAX_LENGTH 20
 
 char *get_nouns()
 {
@@ -19,7 +19,6 @@ char *get_nouns()
     if (filePointer == NULL)
     {
         printf("File could not be opened.\n");
-        exit(1);
     }
 
     // Read the strings from the file
@@ -30,11 +29,20 @@ char *get_nouns()
         numStrings++;
     }
 
+    // Close the file
+    fclose(filePointer);
+
     // Seed the random number generator
     srand(time(NULL));
 
     // Pick a random string from the array
     int index = rand() % numStrings;
+
+    // Allocate memory for the selected string
+    char *selectedString = malloc(strlen(strings[index]) + 1);
+
+    // Copy the selected string into the allocated memory
+    strcpy(selectedString, strings[index]);
 
     // Free memory used by the strings
     for (int i = 0; i < numStrings; i++)
@@ -42,8 +50,6 @@ char *get_nouns()
         free(strings[i]);
     }
 
-    // Close the file
-    fclose(filePointer);
-
-    return (strings[index]);
+    return selectedString;
+    free(selectedString);
 }
