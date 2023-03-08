@@ -26,6 +26,11 @@ char *get_verbs()
     // Read the strings from the file
     while (fgets(buffer, MAX_LENGTH, filePointer))
     {
+        len = strlen(buffer);
+        if (len > 0 && buffer[len - 1] == '\n')
+        {
+            buffer[len - 1] = '\0';
+        }
         if (numStrings >= stringsize)
         {
             stringsize += 10;

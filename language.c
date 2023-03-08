@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <unistd.h> 
+#include <unistd.h>
 
 #define MAX_WORD 20
 
@@ -33,9 +33,9 @@ int main(void)
 	sleep(1);
 	printf("LETS MAKE AN SVO SENTENCE\n");
 	sleep(1);
-	printf("**type any noun**\n");
+	printf("type any noun\n");
 	scanf("%s", subject);
-	printf("**randomize word? (yes/no)**\n");
+	printf("pick random verb? (yes/no)\n");
 	scanf("%s", random);
 	int rchoice = true_or_false(random);
 
@@ -43,14 +43,15 @@ int main(void)
 	{
 		temp_verb = get_verbs();
 		printf("%s", temp_verb);
+		printf("\n");
 	}
 	else
 	{
-		printf("**type any verb**\n");
+		printf("type any verb\n");
 		scanf("%s", verb);
 	}
 
-	printf("**randomise object?yes/no**\n");
+	printf("pick random noun?yes/no\n");
 	scanf("%s", random);
 	rchoice = true_or_false(random);
 
@@ -58,10 +59,11 @@ int main(void)
 	{
 		temp_object = get_nouns();
 		printf("%s", temp_object);
+		printf("\n");
 	}
 	else
 	{
-		printf("**type any noun**\n");
+		printf("type any noun\n");
 		scanf("%s", object);
 	}
 
@@ -80,6 +82,6 @@ int main(void)
 	simple_sentence = concatenate(subject, verb, object);
 
 	printf("%s\n", simple_sentence);
-	printf("*** congratulations! You did it!***\n");
+	printf("*** congratulations! You did it! ***\n");
 	return (0);
 }
