@@ -22,15 +22,15 @@ int main(void)
 	char *temp_object = NULL;
 
 	printf("**There are several ways to write a sentence in the English Language**\n");
-	sleep(2);
+	sleep(1);
 	printf("**The simplest of these is the SVO method where you only require three parts:**\n");
-	sleep(2);
+	sleep(1);
 	printf("***The subject, often a noun but can be replaced with a pronoun or a subject clause***\n");
-	sleep(2);
+	sleep(1);
 	printf("****the verb, often an action like make or break but can also be replaced by a verb clause****\n");
-	sleep(2);
+	sleep(1);
 	printf("*****the object, where the action is directed. Can be replaced by an object clause*****\n");
-	sleep(2);
+	sleep(1);
 	printf("LETS MAKE AN SVO SENTENCE\n");
 	sleep(1);
 	printf("**type any noun**\n");

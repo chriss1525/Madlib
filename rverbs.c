@@ -12,6 +12,7 @@ char *get_verbs()
     char **strings = NULL;
     int numStrings = 0;
     int stringsize = 0;
+    int len;
 
     // Open the file in read mode
     filePointer = fopen("rverbs.txt", "r");
