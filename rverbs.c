@@ -9,8 +9,9 @@ char *get_verbs()
 {
     FILE *filePointer;
     char buffer[MAX_LENGTH];
-    char *strings[MAX_LENGTH];
+    char **strings = NULL;
     int numStrings = 0;
+    int stringsize = 0;
 
     // Open the file in read mode
     filePointer = fopen("rverbs.txt", "r");
@@ -24,7 +25,23 @@ char *get_verbs()
     // Read the strings from the file
     while (fgets(buffer, MAX_LENGTH, filePointer))
     {
+        if (numStrings >= stringsize)
+        {
+            stringsize += 10;
+            char **new_strings = realloc(strings, sizeof(char *) * stringsize);
+            if (new_strings == NULL)
+            {
+                printf("Error: failed to allocate memory for strings.\n");
+                exit(EXIT_FAILURE);
+            }
+            strings = new_strings;
+        }
         strings[numStrings] = malloc(strlen(buffer) + 1);
+        if (strings[numStrings] == NULL)
+        {
+            printf("Error: failed to allocate memory for string.\n");
+            exit(EXIT_FAILURE);
+        }
         strcpy(strings[numStrings], buffer);
         numStrings++;
     }
@@ -40,6 +57,11 @@ char *get_verbs()
 
     // Allocate memory for the selected string
     char *selectedString = malloc(strlen(strings[index]) + 1);
+    if (selectedString == NULL)
+    {
+        printf("Error: failed to allocate memory for selected string.\n");
+        exit(EXIT_FAILURE);
+    }
 
     // Copy the selected string into the allocated memory
     strcpy(selectedString, strings[index]);
@@ -49,7 +71,7 @@ char *get_verbs()
     {
         free(strings[i]);
     }
+    free(strings);
 
     return selectedString;
-    free(selectedString);
 }

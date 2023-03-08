@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 /**
  * true_or_false - checks if a string is true or false/yes or no
  * @n: string input

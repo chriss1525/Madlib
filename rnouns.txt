@@ -100,7 +100,7 @@ edge
 education
 effect
 end
-error
+/*error
 event
 example
 exchange
@@ -397,4 +397,4 @@ work
 wound
 writing
 year
-zebra
+zebra*/

@@ -44,6 +44,7 @@ int main(void)
 
 	printf("**randomise object?yes/no**\n");
 	scanf("%s", random);
+	rchoice = true_or_false(random);
 
 	if (rchoice == 1)
 	{
@@ -71,4 +72,5 @@ int main(void)
 	simple_sentence = concatenate(subject, verb, object);
 
 	printf("%s\n", simple_sentence);
+	return (0);
 }

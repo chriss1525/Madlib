@@ -33,8 +33,8 @@ This file contains a function that picks a random word from the list of nouns in
 
 ## rverbs.c
 
-This file contains a function that picks a random word from the list of verbs in rverbs.c
+This file contains a function that picks a random word from the list of verbs in rverbs.txt
 
-## rindex.c
+## ToF
 
-gets a specific index for words in list
+Function that checks if user inputs yes or no
