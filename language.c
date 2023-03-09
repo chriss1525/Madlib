@@ -36,7 +36,7 @@ int main(void)
 	sleep(1);
 	while (1)
 	{
-		printf("Type 'exit' or 'stop' to quit the program.\n");
+		printf("Type 'exit' or 'stop' to quit the program.\n\n");
 		printf("type any noun\n");
 		scanf("%s", input);
 		if (strcmp(input, "exit") == 0 || strcmp(input, "stop") == 0)
@@ -46,37 +46,51 @@ int main(void)
 
 		strcpy(subject, input);
 
-		printf("pick random verb? (yes/no)\n");
-		scanf("%s", random);
-		int rchoice = true_or_false(random);
+		do
+		{
+			printf("pick random verb? (yes/no)\n");
+			scanf("%s", random);
+			if (strcmp(random, "yes") == 0)
+			{
+				temp_verb = get_verbs();
+				printf("%s\n", temp_verb);
+				/*free(temp_verb);*/
+				break;
+			}
+			else if (strcmp(random, "no") == 0)
+			{
+				printf("type any verb\n");
+				scanf("%s", verb);
+				break;
+			}
+			else
+			{
+				printf("invalid input\n");
+			}
+		} while (1);
 
-		if (rchoice == 1)
+		do
 		{
-			temp_verb = get_verbs();
-			printf("%s", temp_verb);
-			printf("\n");
-		}
-		else
-		{
-			printf("type any verb\n");
-			scanf("%s", verb);
-		}
-
-		printf("pick random noun?yes/no\n");
-		scanf("%s", random);
-		rchoice = true_or_false(random);
-
-		if (rchoice == 1)
-		{
-			temp_object = get_nouns();
-			printf("%s", temp_object);
-			printf("\n");
-		}
-		else
-		{
-			printf("type any noun\n");
-			scanf("%s", object);
-		}
+			printf("pick random noun? (yes/no)\n");
+			scanf("%s", random);
+			if (strcmp(random, "yes") == 0)
+			{
+				temp_object = get_nouns();
+				printf("%s\n", temp_object);
+				/*free(temp_object);*/
+				break;
+			}
+			else if (strcmp(random, "no") == 0)
+			{
+				printf("type any noun\n");
+				scanf("%s", object);
+				break;
+			}
+			else
+			{
+				printf("invalid input\n");
+			}
+		} while (1);
 
 		if (temp_verb != NULL)
 		{
@@ -92,13 +106,14 @@ int main(void)
 
 		simple_sentence = concatenate(subject, verb, object);
 
-		printf("%s\n", simple_sentence);
-		printf("*** congratulations! You did it! ***\n");
+		printf("\n%s\n", simple_sentence);
+		printf("\n*** congratulations! You did it! ***\n\n");
 
 		/*printf("Do you want to exit: ");
 		scanf("%s", input);*/
 	}
 	printf("*** Program ended ***\n");
+
 	free(simple_sentence);
 	return (0);
 }
